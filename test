@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A112280026 final</title>
+	
+	<style>
+	body {
+		margin: 0;
+		font-family: "微軟正黑體", sans-serif;
+	}
+
+	header {
+		width: 100%;
+		height: 15vh;
+		font-size: large;
+		background-color: #020204;
+		background-image: url("image/logo.jpeg");
+		background-position: 50% 48%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		position: relative;
+	}
+
+	#header_text1, #header_text2, #header_text3 {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	#header_text1 {
+		left: 10%;
+	}
+
+	#header_text2 {
+		right: 20%;
+	}
+
+	#header_text3 {
+		right: 3px;
+		top: 93%;
+	}
+
+	#header_text1 p, #header_text2 p, #header_text3 p {
+		color: white;
+		font-size: 16px;
+		margin: 0;
+	}
+
+	h1 {
+		font-size: 32px;
+		color: white;
+		margin-top: 20px;
+		margin-right: 60px;
+		z-index: 1;
+	}
+	
+	.marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+	  width: 750px; 
+      height: 40px; 
+      border: transparent;
+    }
+
+    .marquee-content {
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+	
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.drop-down-menu {
+		border:none;
+		display:inline-block;
+		font-family: "Open Sans", Arial, sans-serif;
+		font-size: 20px;
+		position: relative;
+		padding: 10px; 
+		border-radius: 5px;
+		box-sizing: border-box; 
+		margin-right: auto;
+		text-align: center;
+		z-index: 1000;
+	}
+
+	ul.drop-down-menu li {
+		position: relative;
+		white-space: nowrap;
+		border-right: #ccc 1px solid;
+		text-align: center;
+	}
+
+	ul.drop-down-menu > li:last-child {
+		border-right: none;
+	}
+
+	ul.drop-down-menu > li {
+		float: right;
+	}
+
+	ul.drop-down-menu a {
+		background-color: rgba(255, 128, 149, 0);
+		color: #333;
+		display: block;
+		padding: 0px 40px;
+		text-decoration: none;
+		line-height: 40px;
+	}
+
+	ul.drop-down-menu a:hover {
+		color: #fff;
+	}
+
+	ul.drop-down-menu li:hover > a {
+		background-color: #ffb3c1; 
+    	color: #fff;
+	}
+
+	ul.drop-down-menu ul {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: auto;
+ 		right: 0;
+		min-width: 180px;
+		z-index: 1000;
+	}
+
+	ul.drop-down-menu ul li {
+		border-bottom: #ccc 1px solid;
+		background-color: #ffe6ea; 
+	}
+
+	ul.drop-down-menu ul li:last-child {
+		border-bottom: none;
+	}
+
+	ul.drop-down-menu ul ul {
+		z-index: 1000;
+		top: 10px;
+		left: 90%;
+	}
+
+	ul.drop-down-menu ul {
+		display: none;
+		z-index: 100;
+	}
+
+	ul.drop-down-menu li:hover > ul {
+		display: block;
+	}
+	ul.drop-down-menu ul li a {
+		background-color: #ffccd5;
+		color: #333;
+		padding: 10px;
+		line-height: 20px;
+	}
+
+	ul.drop-down-menu ul li a {
+		background-color: #ffb3c1; 
+		color: #333;
+		padding: 10px;
+		line-height: 20px;
+	}
+
+	ul.drop-down-menu ul li:hover > a {
+		background-color: #ffb3c1;
+		color: #fff;
+	}
+	
+	ul.horizontal-menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		background-color: #333; 
+		text-align: center;
+		position: absolute;
+		top: 100%; 
+		left: 0;
+		width: 100%;
+		display: none; 
+        }
+
+    ul.drop-down-menu li:hover ul.horizontal-menu {
+        display: block; 
+        }
+
+    ul.drop-down-menu ul ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 180px;
+        z-index: 999;
+    }
+
+    ul.drop-down-menu ul ul li {
+        border-bottom: #ccc 1px solid;
+        background-color: #ffe6ea;
+    }
+
+    ul.drop-down-menu ul ul li:last-child {
+        border-bottom: none;
+    }
+
+    ul.drop-down-menu ul ul li:hover > a {
+        background-color: #ffb3c1;
+        color: #fff;
+    }
+
+	nav {
+		position: fixed;
+		top: 117px;
+		right: 0;
+		width: 100%;
+		height: 10%;
+		text-align: right;
+		display: inline-block;
+		justify-content: flex-end;
+		background-color: #b366ff;
+	}
+
+
+	article { 
+		position:fixed; 
+		top:15%; left:24%; 
+		width:76%; height:75%; 
+		overflow: auto;
+		background-color:#e6ccff;}
+	aside {    
+		position:fixed; 
+		top:25%; 
+		left:0px;
+		width:25%; 
+		height:65%; 
+		overflow: hidden;
+		background-color:transparent;}
+	main {
+			width:100%; 
+			background-color:#e6ccff; 
+	}	
+	
+	#music { 
+			width:100%; height: 80px; line-height:80px;
+	}
+	div{
+		position: relative;
+	}
+
+	h1{font-size: 32px;
+		color: white;
+		position:absolute;
+		top:20px;
+		left:360px}
+
+	
+	#photos {position: absolute; width:calc(420px * 6);}
+	#imgRun {
+		float: left;
+		width: 420px;
+		height:100%
+}
+	.play {
+		animation: move 18s ease-in-out infinite alternate;
+}
+
+	@keyframes move {
+	0%{
+		margin-left: 0px;
+	}
+	20% {
+		margin-left: -420px;
+	}
+	40% {
+		margin-left: -840px;
+	}
+	60% {
+		margin-left: -1260px;
+	}
+	80% {
+		margin-left: -1680px;
+	}
+	100% {
+		margin-left: -2100px;
+ 	 }
+	}
+
+	.button{
+		display:inline-block;
+		border:solid 1px black;
+		border-radius:5px;
+		padding:10px;
+		font-family:微軟正黑體; 
+		font-size: 1.5em;
+		padding-left:20px; 
+		padding-right:20px;
+		background-color:transparent; 
+		color:white;
+		margin:15px 5px;
+		cursor: pointer;			
+	}
+	.arrow {
+		border: solid black;
+		border-width: 0 3px 3px 0;
+		display: inline-block;
+		padding: 3px;
+	}
+	.right {
+		transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+	}
+	.down {
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+	}
+	footer {
+		position: fixed;
+		height: 80px;
+		width: 100%;
+		bottom: 0;
+		background-color: #cc66ff;
+		display: flex;
+		flex-direction: column; 
+		align-items: center; 
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	footer p {
+		margin: 0;
+		font-size: 14px; 
+		color: white; 
+	}
+
+
+	footer img {
+		width: 60px;
+		height: 60px;
+		margin: 0 10px;
+    	transition: width 0.3s ease-out, transform 0.3s ease-out;
+	}
+
+	footer img:hover {
+		width: 65px;
+    	transform: translateY(-5px);
+	}
+
+
+	</style>
+	
+	
+	
+</head>
+<body style="background-color: #e6ccff">
+	<header>
+		<div id="header_text1"><font size="7" face="Verdana" color="white">&#128153; I V E &#128153;</font></div>
+		<div id="header_text2"><font size="2" face="Verdana" color="white">製作: A112280026</font><br></div>
+		<div id="header_text3"><font size="1" color="white">圖片來源: 成員的 Instagram, x & 星船 Instagram, x & 飯拍</font></div>
+	</header>
+	
+<article>
+<center>
+	<nav>
+		<ul class="drop-down-menu">
+			<li><a href="#"><b><img src=image/profile.png width="30px">成員<i class="arrow down"></i></b></a>
+				<ul>
+					<li><a href="#">Gaeul</a></li>
+					<li><a href="#">An Yujin</a></li>
+					<li><a href="#">Wonyoung</a></li>
+					<li><a href="#">Rei</a></li>
+					<li><a href="#">Liz</a></li>
+					<li><a href="#">Leeseo</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<ul class="drop-down-menu">
+			<li><a href="#"><b><img src=image/photo.png width="30px">Instagrams<i class="arrow down"></i></b></a>
+				<ul>
+					<li><a href="#">Gaeul<i class="arrow right"></i></a>
+						<ul>
+							<li><a href="#">fallingin__fall</a></li>
+							</ul>
+					<li><a href="#">An Yujin<i class="arrow right"></i></a>
+						<ul>
+							<li><a href="#">_yujin_an</a></li>
+						</ul>
+					<li><a href="#">Wongyoung<i class="arrow right"></i></a>
+						<ul>
+							<li><a href="#">for_everyoung10</a></li>
+						</ul>
+					<li><a href="#">Rei<i class="arrow right"></i></a>
+						<ul>
+							<li><a href="#">reinyourheart</a></li>
+						</ul>
+					<li><a href="#">Liz<i class="arrow right"></i></a>
+						<ul>
+							<li><a href="#">liz.yeyo</a></li>
+						</ul>
+					<li><a href="#">Leeseo<i class="arrow right"></i></a>
+					<ul>
+						<li><a href="#">eeseooes</a></li>
+					</ul>
+				</ul>
+			</li>
+		</ul>
+		
+		<ul class="drop-down-menu">
+			<li><a href="#"><b><img src=image/music.png width="30px">音樂<i class="arrow down"></i></b></a>
+				<ul>
+					<li><a href="#"><font face="Garamond">Love Dive<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/Y8JFxS1HlDo?si=yF9b39yGXd9vNy2T">MV</a>
+							<li><a href="https://youtu.be/Bo2aD_I7-1U?si=7o4qr50WOtX8jscv">Dance Practice</a></li>
+						</ul>
+					<li><a href="#"><font face="Garamond">After Like<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/F0B7HDiY-10?si=8mIk3EZUN5X9UO3I">MV</a>
+							<li><a href="https://youtu.be/J98RARuY_wU?si=dPWrAe1WPJvFL4pB">Dance Practice</a></li>
+						</ul>
+					<li><a href="#"><font face="Garamond">Eleven<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/--FmExEAsM8?si=85Kk2aH4Dsbfd1y5">MV</a>
+							<li><a href="https://youtu.be/J98RARuY_wU?si=dPWrAe1WPJvFL4pB">Dance Practice</a></li>
+						</ul>
+					<li><a href="#"><font face="Garamond">Either Way<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/_Hu4GYtye5U?si=c_FZoGV1n1N6aLak">MV</a>
+							<li><a href="https://youtu.be/XyCA9PHOkZw?si=YanxXd9DMo5YdZzV">Sing</a></li>
+						</ul>
+					<li><a href="#"><font face="Garamond">Off the record<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/_ApV7Lm87cg?si=QPLa2Y9nnTzRXKsU">MV</a>
+							<li><a href="https://youtu.be/Kn0NJzKAPLE?si=mD9fE84By6Pu6ZpV">Dance Practice</a></li>
+						</ul>
+					<li><a href="#"><font face="Garamond">Baddie<i class="arrow right"></i></font></a>
+						<ul>
+							<li><a href="https://youtu.be/Da4P2uT4mVc?si=qNGYlG957X2T_qjY">MV</a>
+							<li><a href="https://youtu.be/KAnQ-eNUHOE?si=Jq0vsYzwwGbCylhw">Dance Practice</a></li>
+						</ul>
+				</ul>
+			</li>
+		</ul>
+		
+		<ul class="drop-down-menu">
+			<li><a href="#"><b><img src=image/video.png width="30px">影片<i class="arrow down"></i></b></a>
+				<ul>
+					<li><a href="https://youtu.be/cJc62vZZs8A?si=iXhLs8Z0g5VV99E1">360度環繞 唱Either Way</a></li>
+					<li><a href="https://www.youtube.com/watch?v=ocBhK7w0dRY&pp=ygUGYmFkZHVl">4K Baddie Performance</a></li>
+					<li><a href="https://youtu.be/xGeUVmdbWGc?si=hI725WsDEsxRKXAX">Off the record (inkigayo)</a></li>
+					<li><a href="https://youtu.be/0EK_M2taRIM?si=sMnVa3UijWAHVPSN">Eleven 4K performance</a></li>
+					<li><a href="https://youtu.be/ak490-PtOuU?si=pxgCvkSiFizsNCQL">Love dive Band live version</a></li>
+				</ul>
+			</li>
+		</ul>
+		
+	</nav>
+</center>
+<br><br><br><br>
+	
+	<main> 
+	    <br><br>
+		<div align="center"><font size="6" face="Arial">Profiles</font></div><br>
+        <table class="IVE" style="text-align:center; font-size:80%; border: 1px solid #F55696;" align="center">
+
+		
+<thead align="center" >
+<tr  style="background-color:aliceblue">
+<th colspan="4">藝名</th>
+<th colspan="4">本名</th>
+<th rowspan="2">出生日期<br>出生地</th>
+<th rowspan="2">代表顏色</th>
+<th rowspan="2">代表emoji</th>
+<th rowspan="2">MINiVE角色</th>
+<th rowspan="2">MBTI</th>
+</tr>
+
+<tr>
+<th>英文</th>
+<th>韓文</th>
+<th>日文</th>
+<th>中文</th>
+<th>漢字</th>
+<th>韓文</th>
+<th>日文</th>
+<th>羅馬拼音</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Gaeul</td>
+<td><span lang="ko">가을</span></td>
+<td><span lang="ja">ガウル</span></td>
+<td>秋天</td>
+<td>金가을<br></td>
+<td><span lang="ko">김가을</span></td>
+<td><span lang="ja">キム・ガウル</span></td>
+<td><span lang="en">Kim Gaeul</span></td>
+<td>2002年9月24日（21歲）<br>南韓仁川廣域市富平區</td>
+<td>藍色</td>
+<td>🐿️</td>
+<td>DAL-E</td>
+<td>ISTJ</td>
+</tr>
+
+<tr>
+<td><b>Yujin</b></td>
+<td><b><span lang="ko">유진</span></b></td>
+<td><b><span lang="ja">ユジン</span></b></td>
+<td><b>兪真</b></td>
+<td><b>安兪真</b><br></td>
+<td><b><span lang="ko">안유진</span></b></td>
+<td><b><span lang="ja">アン・ユジン</span></b></td>
+<td><b><span lang="en">An Yujin</span></b></td>
+<td>2003年9月1日（20歲）<br>南韓大田廣域市</td>
+<td>洋紅色</td>
+<td>🐶</td>
+<td>GANGANJI</td>
+<td>ISTP</td>
+</tr>
+
+<tr>
+<td>Rei</td>
+<td><span lang="ko">레이</span></td>
+<td><span lang="ja">レイ</span></td>
+<td>怜</td>
+<td>直井 怜</td>
+<td><span lang="ko">나오이 레이</span></td>
+<td><span lang="ja">なおい れい</span></td>
+<td><span lang="en">Naoi Rei</span></td>
+<td>2004年2月3日（19歲）<br>日本德島縣阿南市</td>
+<td>綠色</td>
+<td>🐥</td>
+<td>NAORI</td>
+<td>INFJ</td>
+</tr>
+
+<tr>
+<td>Wonyoung</td>
+<td><span lang="ko">원영</span></td>
+<td><span lang="ja">ウォニョン</span></td>
+<td>員瑛</td>
+<td>張員瑛<br></td>
+<td><span lang="ko">장원영</span></td>
+<td><span lang="ja">チャン・ウォニョン</span></td>
+<td><span lang="en">Jang Wonyoung</span></td>
+<td>2004年8月31日（19歲）<br>南韓首爾特別市龍山區二村洞</td>
+<td>紅色</td>
+<td>🐰</td>
+<td>CHERRY</td>
+<td>E???</td>
+</tr>
+
+<tr>
+<td>Liz</td>
+<td><span lang="ko">리즈</span></td>
+<td><span lang="ja">リズ</span></td>
+<td>麗茲</td>
+<td>金志垣<br></td>
+<td><span lang="ko">김지원</span></td>
+<td><span lang="ja">キム・ジウォン</span></td>
+<td><span lang="en">Kim Jiwon</span></td>
+<td> 2004年11月21日（18歲）<br>南韓濟州特別自治道南濟州郡</td>
+<td>青色</td>
+<td>🐱</td>
+<td>CHEEZ</td>
+<td>INFP</td>
+</tr>
+
+<tr style="white-space:nowrap">
+<td>Leeseo</td>
+<td><span lang="ko">이서</span></td>
+<td><span lang="ja">イソ</span></td>
+<td>李瑞</td>
+<td>李賢瑞</td>
+<td><span lang="ko">이현서</span></td>
+<td><span lang="ja">イ・ヒョンソ</span></td>
+<td><span lang="en">Lee Hyunseo</span></td>
+<td>2007年2月21日（16歲）<br>南韓首爾特別市瑞草區</td>
+<td>黃色</td>
+<td>🐯</td>
+<td>ERANG-E</td>
+<td>ENFP
+</td></tr></tbody><tfoot></tfoot></table>
+	<br>
+	<aside><div id="photos" class="play">
+	<img id="imgRun" src="image/yj_logo.jpeg" width="420">
+	<img id="imgRun" src="image/wy_logo.jpeg" width="420">
+	<img id="imgRun" src="image/gaeul_logo.jpeg" width="420">
+	<img id="imgRun" src="image/liz_logo.jpeg" width="420">
+	<img id="imgRun" src="image/leeseo_logo.jpeg" width="420">
+	<img id="imgRun" src="image/rei_logo.jpg" width="420">
+	</div></aside>
+	
+	<a href="#top"><center>置頂</a><br>
+	<hr align="center" color="black" width="70%" size="3"><br>
+		
+<section>
+	<div id="photo" align="center"><font size="6" face="Arial">Photos</font></div><br>
+	<div class="marquee-container">
+		<div class="marquee-content">
+		  <b>I V E</b> Yujin(隊長) Wonyoung(顏值擔當) Liz(最強Vocal) Rei(日本人!) Gaeul(老大) Leeso(忙內)
+		</div>
+	  </div>
+	<table class="Members" style="border: 1px solid transparent" color="#F55696"  align="center"> 
+	<td><center><font size="4" face="Arial"><b>Yujin</b></font> <br><img src="image/Yujin.jpg" width="300" height="400"></td>
+	<td><center><font size="4" face="Arial"><b>Wonyoung</b><br><img src="image/Wongyoung.jpg" width="300" height="400"></font><br></td>
+	<td><center><font size="4" face="Arial"><b>Gaeul</b></font> <br><img src="image/Gaeul.jpg" width="300" height="400"></td>
+	<br><tr>
+	<td><center><font size="4" face="Arial"><b>Liz</b></font> <br><img src="image/Liz.jpg" width="300" height="400"></td>
+	<td><center><font size="4" face="Arial"><b>Leeseo</b></font> <br><img src="image/Leeseo.jpg" width="300" height="400"></td>
+	<td><center><font size="4" face="Arial"><b>Rei</b></font> <br><img src="image/Rei.jpg" width="300" height="400"></td>
+	</table>
+</section><br>
+	<a href="#top"><center>置頂</a><br>
+	<hr align="center" color="black" width="70%" size="3"><br>
+	
+	<section align="center">
+	<div id="music" align="center"><font size="6" face="Arial">Musics</font></div><br>
+	<table class="music" style="border: 1px solid black" align="center">
+	
+		<tr><center>
+	<td colspan="3"><center><font size="5" face="標楷體"><b>曾經被提名及獲獎的歌曲</b></font><td>
+	</tr>
+	
+	<tr>
+	<td><center><audio src="music/LOVE DIVE.mp3" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><b><i>Love Dive</i></b><br></td>
+	<td align="left">DIVE一語雙意，既是IVE的粉絲名，也有「潛水」的意思，LOVE DIVE就是愛粉絲，<br>
+	IVE通過「納西索斯」神話告訴粉絲：愛豆愛著你，你也要學會自愛。<br>
+	同時歌詞中主角跳入水中代表勇敢追尋愛情，<br>
+	衍生出了
+	<font color="red">「大家遇到想要追尋的目標要大膽追尋」</font>的意思。</td>
+	</tr>
+	<tr>
+	<td><center><audio src="music/After LIKE.mp3" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><center><b><i>After Like</i></b><br></td>
+	<td align="left">《After Like》延續了第二張單曲輯《LOVE DIVE》包含的信息，<br>
+	即<font color="red">若有愛的勇氣就隨時去愛。</font>歌詞融入了對愛充滿自信的態度。<br>
+	同名主打歌是一首呈現電子、流行音樂等多種風格的歌曲，<br>
+	樂曲華美適合晚夏之際傾聽。</td>
+	</tr>
+	<tr>
+	<td><center><audio src="music/ELEVEN.m4a" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><center><b><i>Eleven</i></b><br></td>
+	<td align="left">歌名其實取自足球領域的Best Eleven，<br>
+	是指<font color="red">選定的最佳成績或活躍度的足球選手</font>，<br>
+	以此<font color="red">表達IVE的團隊精神</font><br></td>
+	</tr>
+	
+	<tr><center>
+	<td colspan="3"><center><font size="5" face="標楷體"><b>最近新出的歌曲</b></font><td>
+	</tr>
+	
+	<tr>
+	<td><center><audio src="music/Either Way.mp3" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><center><b><i>Either Way</i></b><br></td>
+	<td align="left">最喜歡的中翻歌詞<font color="red">沒有誰對誰錯之分\就像每個人都用不同的方式去愛一樣</font></td>
+	</tr>
+
+	<tr>
+	<td><center><audio src="music/Off the record.mp3" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><center><b><i>Off the record</i></b><br></td>
+	<td align="left">最喜歡的中翻歌詞<font color="red">非公開的夜晚\這些深夜對話\不會輕易入睡</font></td>
+	</tr>
+
+	<tr>
+	<td><center><audio src="music/Baddie.mp3" onloadstart="this.volume=0.1" controls></audio></td>
+	<td><center><b><i>Baddie</i></b><br></td>
+	<td align="left">最喜歡的中翻歌詞<font color="red">擺脫煩人的束縛\不需要向別人低頭</font></td>
+	</tr>
+	
+	</table>
+	</section>
+	<div class="marquee-container">
+		<div class="marquee-content">
+		  <b>p.s.</b> 除了这6首歌之外，还有许多很好听的歌曲! 像是I want, I am, Payback等，等着你去发现!
+		</div>
+	  </div>
+	<a href="#top"><center>置頂</a><br>
+	<hr align="center" color="black" width="70%" size="3"><br>
+	
+    <table align="center" border="5">
+	<div id="video"></div>
+	<thead>
+		<tr style="background-color:pink"><th colspan="3"><h2>IVE <br>The Prom Queens in Taipei</h2></th></tr>
+	</thead>
+	<tr>
+		<td><center><img src="image/The Prom Queens in Taipei.jpg"  width="400" height="192.1"><br><font size="3" face="微軟正黑體"><b>20230625 結束的合照</b></font></td>
+		
+		<td width="350"><center><video src="video/230624 IVE Encore.mp4" width="168.75" height="300" onloadstart="this.volume=0.1" poster="image/video2.jpg" controls></video><br><font size="3" face="微軟正黑體"><b>20230624 安可!!(Yujin Focus)<br>(After Like+Love Dive)</b></font></td>
+		
+		<td ><center><img src="image/IVE.jpg"  width="400" height="266.8"><br><font size="3" face="微軟正黑體"><b>20230625 活動中的照片</b></font></td>
+	</tr>
+	<tr>
+		<td><center><video src="video/230625 IVE - Kitsch.mp4" width="400" height="255" onloadstart="this.volume=0.15" poster="image/pic02.jpg" controls></video><br><font size="3" face="微軟正黑體"><b>飯拍20230625 IVE_Kitsch</b></font></td>
+		
+		<td><center><img src="image/Anyujin.jpg"  width="168.75" height="300" ><br><font size="3" face="微軟正黑體"><b>最愛的隊長安俞真</b></font></td>
+		
+		<td><center><video src="video/230625 IVE - I AM.mp4" width="400" height="255" poster="image/pic03.jpg" onloadstart="this.volume=0.15" controls></video><br><font size="3" face="微軟正黑體"><b>飯拍20230625 IVE_I AM</b></font></td>
+	</tr>
+	</table>
+	<br>
+	<a href="#top"><center>置頂</a><br>
+	<hr align="center" color="black" width="70%" size="3">
+   </article>
+	
+   <footer>
+	<center>
+	<a href="https://www.instagram.com/reinyourheart"><img src="image/rei_logo.png" style="width: 4%; height: auto"></a>
+	<a href="https://www.instagram.com/fallingin__fall"><img src="image/gaeul_logo.png" style="width: 4%; height: auto"></a>
+	<a href="https://www.instagram.com/for_everyoung10"><img src="image/wy_logo.png" style="width: 4%; height: auto"></a>
+	<a href="https://www.instagram.com/ivestarship"><img src="image/ive.png"style="width: 3%; height: auto"></a>
+	<a href="https://www.instagram.com/_yujin_an"><img src="image/yj_logo.png" style="width: 4%; height: auto"></a>
+	<a href="https://www.instagram.com/eeseooes"><img src="image/leeseo_logo.png" style="width: 4%; height: auto"></a>
+	<a href="https://www.instagram.com/liz.yeyo"><img src="image/liz_logo.png" style="width: 4%; height: auto"></a>
+	</center>
+	<p>點擊圖片可跳轉至各成員instagram</p>
+	</footer>
+	
+</body>
+</html>
